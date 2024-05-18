@@ -1,10 +1,15 @@
 .container-fluid {
   background-color: #771629;
   color: white;
+  font-family: "Graphik", sans-serif;
 }
 .profile-header,
 .nav-tabs {
   background-color: #121515;
+}
+
+h4 {
+  border-bottom: 2px solid white;
 }
 
 .nav-tabs {
