@@ -11,18 +11,19 @@ export class LoginService {
   private urlLogin = 'http://localhost:8000/login/';
   private urlBase = 'http://localhost:8000';
   private isLoggedInSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  private readonly storageKey = 'nombreusuario';
 
   constructor(private http: HttpClient, private cookieService: CookieService) {
-    // Verificar la cookie de sesión al inicializar el servicio
     this.checkSession();
   }
 
   login(username: string, password: string): Observable<any> {
     return this.http.post<any>(this.urlLogin, { nombreusuario: username, contrasena: password }).pipe(
       tap((response) => {
-        // Si el inicio de sesión es exitoso, establece una cookie de sesión
+        // Si el inicio de sesión tiene exito establece una cookie de sesión
         if (response && response.token) {
-          this.setSessionCookie(response.token); // Establece la cookie de sesión
+          this.setSessionCookie(response.token); 
+          localStorage.setItem(this.storageKey, username);
         }
       }),
       catchError((error) => {
@@ -36,18 +37,16 @@ export class LoginService {
     // Elimina la cookie de sesión y emite false al BehaviorSubject
     this.cookieService.delete('sessionToken');
     this.isLoggedInSubject.next(false);
-    
+    localStorage.removeItem(this.storageKey);
   }
 
   private setSessionCookie(token: string): void {
-    // Establece la cookie de sesión con un tiempo de expiración de 1 día
     this.cookieService.set('sessionToken', token, 1);
   }
 
   private checkSession(): void {
-    // Verifica si la cookie de sesión está presente al inicializar el servicio
     const isLoggedIn = this.cookieService.check('sessionToken');
-    this.isLoggedInSubject.next(isLoggedIn); // Emite el estado actual al BehaviorSubject
+    this.isLoggedInSubject.next(isLoggedIn); 
   }
 
   isLoggedIn(): boolean {
@@ -64,5 +63,9 @@ export class LoginService {
         return throwError(error);
       })
     );
+  }
+
+  getNombreUsuario(): string | null {
+    return localStorage.getItem(this.storageKey);
   }
 }

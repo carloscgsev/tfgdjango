@@ -44,8 +44,9 @@ export class NavbarComponent implements OnInit {
   }
 
   logout(): void {
+    this.router.navigate(['']);
     this.loginService.logout();
-    window.location.reload();
+    window.location.reload();    
   }
   
   openVC() {
@@ -56,7 +57,9 @@ export class NavbarComponent implements OnInit {
   }
 
   openPerfil() {
-    
+    const usuario = this.loginService.getNombreUsuario();
+    console.log(usuario)
+    this.router.navigate([`/${usuario}`]);
   }
 
   displaySuccessMsg() {

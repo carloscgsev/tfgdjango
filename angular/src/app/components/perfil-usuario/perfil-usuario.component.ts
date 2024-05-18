@@ -34,7 +34,6 @@ export class PerfilUsuarioComponent {
   }
 
   editarPerfil(): void {
-    // Lógica para editar el perfil
     console.log('Edit profile clicked');
   }
 }

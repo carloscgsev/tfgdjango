@@ -99,6 +99,7 @@ def login_view(request):
         try:
             data = json.loads(request.body)
             form = FormLogin(data)
+            print(data)
             print(form)
             if form.is_valid():
                 nombreusuario = form.cleaned_data['nombreusuario']
