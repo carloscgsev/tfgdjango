@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ListaPeliculaComponent } from './components/lista-pelicula/lista-pelicula.component';
 import { DetallesPeliculaComponent } from './components/detalles-pelicula/detalles-pelicula.component';
 import { ResultadoBusquedaComponent } from './components/resultado-busqueda/resultado-busqueda.component';
 import { HomeComponent } from './components/home/home.component';
@@ -9,10 +8,11 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { LoginComponent } from './components/login/login.component';
 import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
 import { AuthGuard } from './auth.guard';
+import { PeliculaComponent } from './components/pelicula/pelicula/pelicula.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
-  { path: 'peliculas', component: ListaPeliculaComponent},
+  { path: 'peliculas', component: PeliculaComponent},
   { path: 'detalles/:id', component: DetallesPeliculaComponent},
   { path: 'buscar/:busqueda', component: ResultadoBusquedaComponent},
   { path: 'dummy', component: DummyComponent},
