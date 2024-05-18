@@ -1,0 +1,89 @@
+a {
+  color: #f0bf1f;
+  margin: 0 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+a:hover {
+  color: white;
+}
+
+a:focus {
+  color: #f0bf1f;
+}
+
+a:active {
+  color: #f0bf1f;
+}
+
+ul > li > a.active {
+  color: #b53534;
+}
+
+.navbar-brand.active {
+  color: #f0bf1f;
+}
+
+
+.navbar {
+  overflow-y: hidden;
+  overflow-x: hidden;
+  background: #121515;
+  /* border: 8px solid green; */
+  font-family: "Graphik", sans-serif;
+  position: relative;
+}
+
+/* .container-fluid {
+  border: 5px solid blue;
+} */
+
+@media (max-width: 1030px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-nav {
+    display: flex;
+    flex-direction: row;
+  }
+
+
+  .icon{
+    font-size: 1.8em;
+  }
+
+  .rotate-45:hover {
+    transform: rotate(90deg);
+    transition: transform 0.5s ease;
+    
+  }
+
+  .rotate-45 {
+    transition: transform 0.5s ease;
+  }
+
+  .dropdown-menu {
+    background-color: transparent;
+    border: 0;
+  }
+
+}
+
+@media (min-width: 1031px) {
+  .mobile-nav {
+    display: none;
+  }
+
+  .desktop-nav {
+    flex-direction: row;
+  }
+
+  .container-fluid {
+    margin: 1em 2em 1em 2em;
+  }
+
+  
+}
+

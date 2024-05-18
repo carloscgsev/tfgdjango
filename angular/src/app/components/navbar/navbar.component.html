@@ -1,0 +1,87 @@
+<nav class="navbar">
+  <div class="container-fluid">
+    <a class="navbar-brand" [routerLink]="['/']" routerLinkActive="active"
+      >LOGO AQUI</a
+    >
+
+    <div id="navbarNav">
+      <ul class="navbar-nav ms-auto desktop-nav">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="['/peliculas']"
+            routerLinkActive="active"
+            >PELICULAS</a
+          >
+        </li>
+        <li class="nav-item"  *ngIf="!isLoggedIn">
+          <a
+            class="nav-link"
+            (click)="openVC()"
+            routerLinkActive="active"
+            *ngIf="!isLoggedIn"
+            >Registrarse</a
+          >
+        </li>
+        <li class="nav-item" *ngIf="!isLoggedIn">
+          <a
+            class="nav-link"
+            (click)="loginControlService.toggleLoginForm()"
+            routerLinkActive="active"
+            >Iniciar sesión</a
+          >
+        </li>
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <a class="nav-link" [routerLink]="['/perfil']" routerLinkActive="active"
+            >Mi Perfil</a
+          >
+        </li>
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <a class="nav-link" (click)="logout()" routerLinkActive="active"
+            >Cerrar sesión</a
+          >
+        </li>
+        <li class="nav-item">
+          <app-barra-busqueda></app-barra-busqueda>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto mobile-nav">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="['/peliculas']"
+            routerLinkActive="active"
+            ><i class="bi bi-film icon"></i
+          ></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="openVC()" routerLinkActive="active">
+            <i class="bi bi-person-plus-fill icon"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link rotate-45"
+            [routerLink]="['/peliculas']"
+            routerLinkActive="active"
+            ><i class="bi bi-key-fill icon"></i
+          ></a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            data-bs-toggle="collapse"
+            href="#barra"
+            aria-expanded="false"
+            aria-controls="collapseExample"
+            ><i class="bi bi-search icon"></i
+          ></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <app-login *ngIf="loginControlService.showLoginForm$ | async"></app-login>
+
+  <app-barra-busqueda class="collapse" id="barra"></app-barra-busqueda>
+</nav>

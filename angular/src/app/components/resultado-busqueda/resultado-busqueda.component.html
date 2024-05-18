@@ -1,0 +1,14 @@
+
+<div class="container-fluid min-vh-100 d-flex flex-column">
+  <div class="row flex-grow-1">
+    <div class="col-md-12 bg-home">
+      <h2>Titulos</h2>
+      <div *ngIf="resultados">
+        @for (item of resultados; track item) {
+        <h2>{{ item.titulo }}</h2>
+        }
+      </div>
+      <h2>Personas</h2>
+    </div>
+  </div>
+</div>

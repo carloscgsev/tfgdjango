@@ -1,0 +1,57 @@
+@media (max-width: 1030px) {
+  .input-group {
+    width: 100vw;
+    margin-left: -1.2em;
+  }
+}
+.barra {
+  margin-bottom: auto;
+  margin-top: auto;
+  background-color: #3b3b3b;
+  border-radius: 2em;
+  height: 40px;
+  margin-left: 1.8em;
+}
+
+.section .barra,
+.section .icono {
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background-color and color changes */
+}
+
+.section:hover .barra {
+  background-color: white;
+}
+.barra:focus {
+  background-color: white;
+}
+
+.barra:focus + .icono {
+  background-color: white;
+  color: #3b3b3b;
+}
+
+.section:hover .icono {
+  background-color: white;
+  color: #3b3b3b;
+}
+
+.form-control {
+  border-radius: 2em;
+  height: 40px;
+}
+
+.icono {
+  height: 40px;
+  width: 40px;
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: white;
+  background-color: #3b3b3b;
+}
+
+a:link {
+  text-decoration: none;
+}

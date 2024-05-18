@@ -1,0 +1,108 @@
+
+
+<div class="modal-content">
+  <div class="modal-header">
+    <h3 class="modal-title p-1">Únete hoy</h3>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="closeModal()"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="registroForm" (ngSubmit)="registrarUsuario()" ngbAutofocus>
+      <div *ngIf="erroMsg" class="alert alert-danger">
+        {{ erroMsg }}
+      </div>
+               
+      <div class="form-floating mb-3">
+        <input
+          type="text"
+          class="form-control"
+          id="nombreusuario"
+          placeholder=""
+          formControlName="nombreusuario"
+        />
+        <label for="nombreusuario">Nombre de usuario</label>
+        <div
+          *ngIf="
+            registroForm.get('nombreusuario')?.touched &&
+            registroForm.get('nombreusuario')?.hasError('required')
+          "
+          class="text-danger"
+        >
+        <small>Campo obligatorio</small>
+        </div>
+      </div>
+      <div class="form-floating mb-3">
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="name@example.com"
+          formControlName="email"
+        />
+        <label for="email">Correo electrónico</label>
+        <div
+          *ngIf="
+            registroForm.get('email')?.touched &&
+            registroForm.get('email')?.hasError('required')
+          "
+          class="text-danger"
+        >
+        <small>Campo obligatorio</small>
+        </div>
+        <div
+          *ngIf="
+            registroForm.get('email')?.touched &&
+            registroForm.get('email')?.hasError('email')
+          "
+          class="text-danger"
+        >
+        <small>Formato erroneo</small>
+        </div>
+      </div>
+      <div class="form-floating">
+        <input
+          type="password"
+          class="form-control"
+          id="contrasena"
+          placeholder="Password"
+          formControlName="contrasena"
+        />
+        <label for="contrasena">Contraseña</label>
+        <div
+          *ngIf="
+            registroForm.get('contrasena')?.touched &&
+            registroForm.get('contrasena')?.hasError('required')
+          "
+          class="text-danger"
+        >
+        <small>Campo obligatorio</small>
+        </div>
+        <div
+          *ngIf="
+            registroForm.get('contrasena')?.touched &&
+            registroForm.get('contrasena')?.hasError('minlength')
+          "
+          class="text-danger"
+        >
+        <small>Debe tener al menos 8 caracteres</small>
+        </div>
+      </div>
+      <div class="mt-3 mb-3">
+        <div class="form-check">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            id="captcha"
+            formControlName="captcha"
+          />
+          <label class="form-check-label" for="captcha">Captcha</label>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>

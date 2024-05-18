@@ -1,0 +1,29 @@
+label {
+  color: #121515;
+  font-size: small;
+  margin-left: 2px;
+}
+
+button {
+  transform: translateY(50%);
+}
+
+form {
+  background-color: #AFBB73;
+  height: 100vh;
+  right: 0;
+  padding: 1em;
+}
+
+.login-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 90vw;
+  height: 100%;
+  /* background-color: #b53534; */
+  z-index: 1000;
+  display: flex;
+  justify-content: end; 
+  align-items: center; 
+}

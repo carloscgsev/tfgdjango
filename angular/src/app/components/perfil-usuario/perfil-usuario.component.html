@@ -1,0 +1,113 @@
+<div class="container-fluid" *ngIf="usuario">
+  <div class="row">
+    <div class="profile-header text-center">
+      <img src="https://via.placeholder.com/100" alt="Profile Image" />
+      <h2>{{ usuario.nombreusuario }}</h2>
+      <p>[Pais]</p>
+      <button *ngIf="propioPerfil" (click)="editarPerfil()">Editar perfil</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <ul class="nav nav-tabs justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Perfil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Actividad</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Peliculas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Reseñas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Lista de seguimiento</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Lista</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Likes</a>
+        </li>
+      </ul>
+    
+  </div>
+  
+  <div class="row mt-4">
+    <div class="col-md-8 peliculas">
+      <h4>Peliculas favoritas</h4>
+      <div class="row movie-list">
+        <div class="col-3 movie-poster">
+          <img src="https://via.placeholder.com/150x200" alt="Movie Poster" />
+        </div>
+        <div class="col-3 movie-poster">
+          <img src="https://via.placeholder.com/150x200" alt="Movie Poster" />
+        </div>
+        <div class="col-3 movie-poster">
+          <img src="https://via.placeholder.com/150x200" alt="Movie Poster" />
+        </div>
+        <div class="col-3 movie-poster">
+          <img src="https://via.placeholder.com/150x200" alt="Movie Poster" />
+        </div>
+      </div>
+
+      <h4>Actividad reciente</h4>
+      <div class="row movie-list">
+        <div class="col-3 movie-poster">
+          <img src="https://via.placeholder.com/150x200" alt="Movie Poster" />
+        </div>
+        <div class="col-3 movie-poster">
+          <img src="https://via.placeholder.com/150x200" alt="Movie Poster" />
+        </div>
+        <div class="col-3 movie-poster">
+          <img src="https://via.placeholder.com/150x200" alt="Movie Poster" />
+        </div>
+        <div class="col-3 movie-poster">
+          <img src="https://via.placeholder.com/150x200" alt="Movie Poster" />
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <h4>Bio</h4>
+      <p>[TEXTO]</p>
+
+      <h4>Estadisticas 2021</h4>
+      <div class="form-group">
+        <select class="form-select" id="statsYear">
+          <option>2021</option>
+          <option>2020</option>
+          <option>2019</option>
+        </select>
+      </div>
+
+      <h4 class="mt-3">Peliculas que quiero ver</h4>
+      <div class="row movie-list">
+        <div class="col-4 movie-poster">
+          <img src="https://via.placeholder.com/100x150" alt="Movie Poster" />
+        </div>
+        <div class="col-4 movie-poster">
+          <img src="https://via.placeholder.com/100x150" alt="Movie Poster" />
+        </div>
+        <div class="col-4 movie-poster">
+          <img src="https://via.placeholder.com/100x150" alt="Movie Poster" />
+        </div>
+      </div>
+
+      <div class="row movie-list">
+        <div class="col-4 movie-poster">
+          <img src="https://via.placeholder.com/100x150" alt="Movie Poster" />
+        </div>
+        <div class="col-4 movie-poster">
+          <img src="https://via.placeholder.com/100x150" alt="Movie Poster" />
+        </div>
+        <div class="col-4 movie-poster">
+          <img src="https://via.placeholder.com/100x150" alt="Movie Poster" />
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>

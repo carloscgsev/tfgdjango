@@ -1,0 +1,55 @@
+@media (max-width: 576px) { 
+  .modal-content {
+    background-color: #AFBB73;
+    border: 0;
+  }
+ }
+
+.modal-content {
+  background-color: #AFBB73;
+  border: 0;
+  padding: 25px;
+}
+
+.modal-header {
+  border-bottom: 0;
+}
+
+h3 {
+  color: #0C0F0A;
+}
+
+input {
+  border: 0 !important;
+  box-shadow: none !important;
+  background-color: #0F2846;
+}
+
+input.form-control + label {
+  color: white;
+}
+
+
+input.form-control:not(:placeholder-shown) {
+  background-color: white;
+}
+
+input.form-control:not(:placeholder-shown) + label {
+  color: black;
+}
+
+input.form-control:focus + label {
+  color: black;
+}
+
+
+
+label.form-check-label {
+  display: inline-block;
+  margin-left: 5px;
+  color: white;
+}
+
+.form-check-input[type="checkbox"] {
+    background-color: #0F2846;
+}
