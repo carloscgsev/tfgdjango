@@ -14,9 +14,9 @@ export class PeliculaService {
   
   constructor(private http: HttpClient) {}
     
-  // getAll(): Observable<Pelicula[]>{
-  //   return this.http.get<Pelicula[]>(this.urlLista);
-  // }
+  getAll(): Observable<any>{
+    return this.http.get<Pelicula[]>(this.urlLista);
+  }
 
   getDetalles(id: string): Observable<Pelicula> {
     const detallesUrl = `${this.urlDetalles}${id}`;

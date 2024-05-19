@@ -38,7 +38,7 @@ def getPeliculaDetalles(id_pelicula):
     if response_detalles.status_code == 200:
         # Se pasa a JSON el resultado
         response_detalles_json = response_detalles.json()
-        
+        #print(response_detalles_json)
         # Se devuelve
         return response_detalles_json
     else:
@@ -93,10 +93,10 @@ def insert_Detalles(results):
             duracion = detalles.get('runtime')
             sinopsis = detalles.get('overview')
             puntuacion = detalles.get('vote_average')
-
+            poster_url = detalles.get('poster_path')
             # Insertar la pelicula
-            sql = "INSERT INTO Pelicula (id_pelicula, titulo, fechaestreno, duracion, sinopsis, puntuacion) VALUES (%s, %s, %s, %s, %s, %s) RETURNING id_pelicula"
-            cursor.execute(sql, (id_pelicula, titulo, fecha_estreno, duracion, sinopsis, puntuacion))
+            sql = "INSERT INTO Pelicula (id_pelicula, titulo, fechaestreno, duracion, sinopsis, puntuacion, poster_url) VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING id_pelicula"
+            cursor.execute(sql, (id_pelicula, titulo, fecha_estreno, duracion, sinopsis, puntuacion, poster_url))
 
             # Bloque para meter en la tabla Genero todos los generos de forma unica de las peliculas conseguidas
             # Y tambien para añadir la relacion pelicula_genero

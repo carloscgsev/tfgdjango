@@ -5,6 +5,7 @@ export class Pelicula{
         public fecha_estreno: Date,
         public duracion: BigInt,
         public puntuacion: BigInt,
-        public sinopsis: String
+        public sinopsis: String,
+        public poster_url: String,
     ) {}
 }

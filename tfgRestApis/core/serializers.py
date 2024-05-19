@@ -11,6 +11,7 @@ class PeliculaSerializer(serializers.ModelSerializer):
                 'duracion',
                 'sinopsis',
                 'puntuacion',
+                'poster_url',
         )
         
 class UsuarioSerializer(serializers.ModelSerializer):

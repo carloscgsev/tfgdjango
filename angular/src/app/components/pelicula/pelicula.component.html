@@ -1,0 +1,120 @@
+<div class="container mb-4">
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom mt-3 mb-4">
+    <div class="container-fluid">
+      <span class="navbar-text">Filtrar por</span>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <button
+              class="btn dropdown-toggle"
+              type="button"
+              id="yearDropdown"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Año
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="yearDropdown"></ul>
+          </li>
+          <li class="nav-item">
+            <button
+              class="btn dropdown-toggle"
+              type="button"
+              id="ratingDropdown"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Puntuación
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="ratingDropdown"></ul>
+          </li>
+          <li class="nav-item">
+            <button
+              class="btn dropdown-toggle"
+              type="button"
+              id="popularDropdown"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Popularidad
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="popularDropdown"></ul>
+          </li>
+          <li class="nav-item">
+            <button
+              class="btn dropdown-toggle"
+              type="button"
+              id="genreDropdown"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Género
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="genreDropdown"></ul>
+          </li>
+
+          <li class="nav-item">
+            <button
+              class="btn dropdown-toggle"
+              type="button"
+              id="otherDropdown"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Otro
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="otherDropdown">
+              <li><a class="dropdown-item" href="#">Más nueva</a></li>
+              <li><a class="dropdown-item" href="#">Más vieja</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <h3 class="mb-4">Peliculas populares</h3>
+  <div id="popularFilmsCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div
+        *ngFor="let chunk of peliculas; let i = index"
+        class="carousel-item"
+        [class.active]="i === 0"
+      >
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+          <div *ngFor="let pelicula of chunk" class="col">
+            <div class="card movie-card">
+              <img
+                [src]="
+                  'https://image.tmdb.org/t/p/original' + pelicula.poster_url
+                "
+                alt="Movie Poster"
+              />
+              <!-- <div class="movie-stats">
+                <span>👁 {{ pelicula.views }}</span>
+                <span>💬 {{ pelicula.comments }}</span>
+                <span>❤️ {{ pelicula.likes }}</span>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Controles de navegación -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#popularFilmsCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Anterior</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#popularFilmsCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Siguiente</span>
+    </button>
+  </div>
+
+  <h4 class="mt-4">Con actividad reciente</h4>
+  <div class="row g-4 just-reviewed">
+    <div *ngFor="let pelicula of justReviewed" class="col">
+      <img [src]="'https://image.tmdb.org/t/p/original' + pelicula.poster_url" alt="Movie Poster" />
+    </div>
+  </div>
+</div>

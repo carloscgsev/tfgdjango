@@ -1,0 +1,73 @@
+.container {
+  background-color: #771629;
+  color: white;
+  font-family: "Graphik", sans-serif;
+}
+
+h3,
+h4 {
+  border-bottom: 2px solid white;
+}
+
+.movie-card {
+  background-color: #444;
+  border: none;
+}
+.movie-card img {
+  width: 100%;
+  height: auto;
+}
+.movie-stats {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+.movie-stats span {
+  color: lightgrey;
+}
+.ad-banner {
+  background-color: #555;
+  text-align: center;
+  padding: 20px;
+  margin: 20px 0;
+}
+.just-reviewed img {
+  width: 100%;
+  height: auto;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  outline: none;
+  opacity: 1;
+}
+
+.carousel-control-prev {
+  margin-left: -4em;
+}
+
+.carousel-control-next {
+  margin-right: -4em;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+}
+
+.carousel-control-prev-icon:hover {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'><path d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/></svg>");
+  opacity: 1;
+}

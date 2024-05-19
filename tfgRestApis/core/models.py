@@ -204,7 +204,8 @@ class Pelicula(models.Model):
     duracion = models.IntegerField()
     sinopsis = models.TextField()
     puntuacion = models.DecimalField(max_digits=3, decimal_places=2, blank=True, null=True)
-
+    poster_url = models.CharField(max_length=255)
+    
     class Meta:
         managed = False
         db_table = 'pelicula'

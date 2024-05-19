@@ -20,9 +20,6 @@ import jwt
 def listaPelicula(request):
     if request.method == 'GET':
 
-        if 'id_usuario' in request.session:
-            print('usuario logeado')
-
         peliculas = Pelicula.objects.all()
 
         titulo = request.GET.get('titulo', None)

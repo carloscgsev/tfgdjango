@@ -8,7 +8,7 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { LoginComponent } from './components/login/login.component';
 import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
 import { AuthGuard } from './auth.guard';
-import { PeliculaComponent } from './components/pelicula/pelicula/pelicula.component';
+import { PeliculaComponent } from './components/pelicula/pelicula.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},

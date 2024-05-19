@@ -19,7 +19,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
-import { PeliculaComponent } from './components/pelicula/pelicula/pelicula.component';
+import { PeliculaComponent } from './components/pelicula/pelicula.component';
 
 @NgModule({
   declarations: [
