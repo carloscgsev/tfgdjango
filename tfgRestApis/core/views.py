@@ -7,24 +7,32 @@ from django.contrib.auth.hashers import check_password
 from requests import Response
 from rest_framework.decorators import api_view
 from django.contrib import messages
-from .serializers import PeliculaSerializer, UsuarioPublicoSerializer
-from .models import Pelicula
-from .models import Usuario
+from .serializers import PeliculaSerializer, UsuarioPublicoSerializer, GeneroSerializer
+from .models import Pelicula, Usuario, Genero
 from .forms import FormLogin
 from django.shortcuts import get_object_or_404
+
 import json
 import jwt
 
+@api_view(['GET'])
+def getGeneros(request):
+    try:
+        if request.method == 'GET':
+            
+            generos = Genero.objects.all()
+                            
+            generos_serializer = GeneroSerializer(generos, many=True)
+            return JsonResponse(generos_serializer.data, safe=False)
+    except Exception as e:
+        return JsonResponse({'message': str(e)}, status=404)
+        
 
 @api_view(['GET', 'POST', 'DELETE'])
 def listaPelicula(request):
     if request.method == 'GET':
 
         peliculas = Pelicula.objects.all()
-
-        titulo = request.GET.get('titulo', None)
-        if titulo is not None:
-            peliculas = peliculas.filter(titulo__icontains=titulo)
 
         pelicula_serializer = PeliculaSerializer(peliculas, many=True)
         return JsonResponse(pelicula_serializer.data, safe=False)

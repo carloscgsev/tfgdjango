@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Pelicula } from '../../models/pelicula-model';
+import { Genero } from '../../models/genero-model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ export class PeliculaService {
   // se procede a las views  y bla bla
   private urlLista = 'http://localhost:8000/lista';
   private urlDetalles = 'http://localhost:8000/detalles/';
+  private urlGeneros = 'http://localhost:8000/getGeneros/'
   
   constructor(private http: HttpClient) {}
     
@@ -23,5 +25,8 @@ export class PeliculaService {
     return this.http.get<Pelicula>(detallesUrl);
   }
   
+  getGeneros(): Observable<any> {
+    return this.http.get<Genero[]>(this.urlGeneros);
+  }
   
 }
