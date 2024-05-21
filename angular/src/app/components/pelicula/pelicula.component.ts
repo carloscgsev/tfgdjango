@@ -25,6 +25,7 @@ export class PeliculaComponent {
   getPeliculas(): void {
     this.peliculaService.getAll().subscribe((peliculas: Pelicula[]) => {
       this.peliculas = this.chunkArray(peliculas.slice(0, 8), 4);
+      console.log(this.peliculas)
       this.justReviewed = this.getRandomPeliculas(peliculas.slice(8), 12);
       this.years = this.extractYears(peliculas);
     });

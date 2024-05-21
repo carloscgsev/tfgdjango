@@ -1,7 +1,7 @@
 export class Pelicula{
     constructor(
         public titulo: String,
-        public id: BigInt,
+        public id_pelicula: BigInt,
         public fechaestreno: Date,
         public duracion: BigInt,
         public puntuacion: BigInt,

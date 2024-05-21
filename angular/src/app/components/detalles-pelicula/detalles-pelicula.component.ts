@@ -7,13 +7,16 @@ import { ActivatedRoute } from '@angular/router';
   selector: 'app-detalles-pelicula',
   templateUrl: './detalles-pelicula.component.html',
   styleUrl: './detalles-pelicula.component.css',
-  providers: [ PeliculaService ],
+  providers: [PeliculaService],
 })
 export class DetallesPeliculaComponent implements OnInit {
-  pelicula: Pelicula | null; 
+  pelicula: Pelicula | null;
   public id: string | null;
-  
-  constructor(private peliculaService: PeliculaService, private route: ActivatedRoute) { }
+
+  constructor(
+    private peliculaService: PeliculaService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
@@ -21,18 +24,13 @@ export class DetallesPeliculaComponent implements OnInit {
   }
 
   getPeliculas(): void {
-    if (this.id !== null) { 
-      this.peliculaService.getDetalles(this.id).subscribe(
-        pelicula => {
-          this.pelicula = pelicula;
-        },
-        error => {
-          console.error('Error fetching pelicula details:', error);
-        }
-      );
+    if (this.id !== null) {
+      this.peliculaService.getDetalles(this.id).subscribe((pelicula) => {
+        this.pelicula = pelicula;
+        console.log(this.pelicula)
+      });
     } else {
       console.error('ID null');
     }
   }
 }
-

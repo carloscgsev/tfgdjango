@@ -29,7 +29,7 @@ def getGeneros(request):
         
 
 @api_view(['GET', 'POST', 'DELETE'])
-def listaPelicula(request):
+def getPeliculas(request):
     if request.method == 'GET':
 
         peliculas = Pelicula.objects.all()

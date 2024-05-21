@@ -10,8 +10,8 @@ import { Genero } from '../../models/genero-model';
 export class PeliculaService {
   // El servicio, inyectado en tal, hace un request a las urlPatterns en la parte de backend (Django), de ahi
   // se procede a las views  y bla bla
-  private urlLista = 'http://localhost:8000/lista';
-  private urlDetalles = 'http://localhost:8000/detalles/';
+  private urlLista = 'http://localhost:8000/getPeliculas';
+  private urlDetalles = 'http://localhost:8000/getDetalles/';
   private urlGeneros = 'http://localhost:8000/getGeneros/'
   
   constructor(private http: HttpClient) {}

@@ -1,7 +1,57 @@
-.bg-home{
-    background-color: #1D1F20;
+div {
+    color: white;
+    font-family: "Graphik", sans-serif;
+
 }
 
-h2 {
-    color: white;
+
+
+.card {
+    box-shadow: inset 0 0 0 1px rgba(221,238,255,.1);
+    background-color: #12161a;
+}
+.movie-card img {
+    width: 100%;
+    height: auto;
+  }
+
+.rating-bar {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    width: 60px;
+    margin: 0 10px;
+}
+.rating-bar .progress {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: column-reverse;
+}
+.star-label {
+    margin-top: 10px;
+}
+.progress-bar {
+    height: 0;
+    transition: height 0.6s ease;
+}
+.progress-bar-1 { height: 10%; }
+.progress-bar-2 { height: 20%; }
+.progress-bar-3 { height: 40%; }
+.progress-bar-4 { height: 60%; }
+.progress-bar-5 { height: 80%; }
+.ratings {
+    margin-left: 20px;
+}
+.movie-content {
+    display: flex;
+    justify-content: space-between;
+}
+.movie-details {
+    flex: 1;
+}
+.ratings-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

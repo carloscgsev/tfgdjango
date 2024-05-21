@@ -1,40 +1,66 @@
 .container {
-  background-color: #102545;
-  color: white;
+  color: #d3a736;
   font-family: "Graphik", sans-serif;
 }
 
 h3,
 h4 {
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid #d3a736;
 }
 
+.card {
+  border: 0;
+}
 
-.btn-group {
-  border: 1.2px solid white;
+.btn-group .btn {
+  border: 1px solid #99aabb;
+  color: #d3a736;
   border-radius: 1px;
-  background-color: #102442;
 }
+
+.btn-group .btn:hover {
+  color: white;
+}
+
 .navbar-text {
-  color: #DCB960;
+  color: #d3a736;
   margin-right: 1em;
 }
 
-.btn{
-  border: 0;
-  color: #DCB960;
+.btn:focus {
+  background-color: #89a;
 }
 
-.btn:active {
-  color: #DCB960;
+.dropdown-menu {
+  background-color: #89a;
+  top: 0%;
 }
 
-ul.dropdown-menu {
-  min-width: 1rem;
+.btn-group {
+  position: relative;
+  display: inline-block;
+}
+
+.btn-group .dropdown-menu {
+  min-width: 100%; /* Asegura que el menú tenga al menos el ancho del botón */
+}
+
+.disabled {
+  color: white !important;
 }
 
 a.dropdown-item {
+  color: #2c3440;
   width: min-content;
+}
+
+ul.dropdown-menu > li:hover {
+  opacity: 1;
+  background-color: #fffff0;
+}
+
+a.dropdown-item:hover {
+  background-color: #fffff0;
 }
 
 .movie-card img {
@@ -42,7 +68,7 @@ a.dropdown-item {
   height: auto;
 }
 
-.movie-card:hover{
+.movie-card:hover {
   border: 3px solid #00e054;
 }
 
@@ -58,12 +84,10 @@ a.dropdown-item {
 .just-reviewed img {
   width: 100%;
   height: auto;
-  
 }
 
 .just-reviewed img:hover {
   border: 3px solid #00e054;
-
 }
 
 .carousel-control-prev,

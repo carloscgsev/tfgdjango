@@ -8,13 +8,15 @@
             <div class="btn-group">
               <button
                 type="button"
-                class="btn dropdown-toggle"
+                class="btn dropdown-toggle rounded-start"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
                 Año
               </button>
               <ul class="dropdown-menu dropdown-menu-end">
+                <li class="dropdown-item disabled">Año</li>
+                <li><hr class="dropdown-divider"></li>
                 <li *ngFor="let year of years">
                   <a class="dropdown-item" href="#">{{ year }}</a>
                 </li>
@@ -33,6 +35,8 @@
                 Puntuación
               </button>
               <ul class="dropdown-menu dropdown-menu-end">
+                <li class="dropdown-item disabled">Puntuación</li>
+                <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="#">Menu item</a></li>
                 <li><a class="dropdown-item" href="#">Menu item</a></li>
                 <li><a class="dropdown-item" href="#">Menu item</a></li>
@@ -51,6 +55,8 @@
                 Popularidad
               </button>
               <ul class="dropdown-menu dropdown-menu-end">
+                <li class="dropdown-item disabled">Popularidad</li>
+                <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="#">Menu item</a></li>
                 <li><a class="dropdown-item" href="#">Menu item</a></li>
                 <li><a class="dropdown-item" href="#">Menu item</a></li>
@@ -62,19 +68,22 @@
             <div class="btn-group">
               <button
                 type="button"
-                class="btn dropdown-toggle"
+                class="btn dropdown-toggle rounded-end"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
                 Género
               </button>
-              <ul class="dropdown-menu dropdown-menu-end">
+              <ul class="dropdown-menu dropdown-menu-start">
+                <li class="dropdown-item disabled">Género</li>
+                <li><hr class="dropdown-divider"></li>
                 <li *ngFor="let genero of generos">
                   <a class="dropdown-item" href="#">{{ genero.nombre }}</a>
                 </li>
               </ul>
             </div>
           </li>
+          
           
         </ul>
       </div>
@@ -91,17 +100,16 @@
         <div class="row row-cols-1 row-cols-md-4 g-4">
           <div *ngFor="let pelicula of chunk" class="col">
             <div class="card movie-card">
-              <img
-                [src]="
-                  'https://image.tmdb.org/t/p/original' + pelicula.poster_url
-                "
-                alt="Movie Poster"
-              />
-              <!-- <div class="movie-stats">
-                <span>👁 {{ pelicula.views }}</span>
-                <span>💬 {{ pelicula.comments }}</span>
-                <span>❤️ {{ pelicula.likes }}</span>
-              </div> -->
+              <a [href]="
+              '/detalles/' + pelicula.id_pelicula
+              "><img
+              [src]="
+                'https://image.tmdb.org/t/p/original' + pelicula.poster_url
+              "
+              
+              alt="Movie Poster"
+            /></a>
+              
             </div>
           </div>
         </div>
