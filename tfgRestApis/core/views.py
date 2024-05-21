@@ -3,6 +3,7 @@ from django.shortcuts import redirect, render
 from django.utils import timezone
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.hashers import check_password
+from django.conf import settings
 
 from requests import Response
 from rest_framework.decorators import api_view
@@ -39,7 +40,7 @@ def getPeliculas(request):
 
 
 @api_view(['GET', 'POST', 'DELETE'])
-def detallesID(request, id):
+def getDetalles(request, id):
     try:
         pelicula = Pelicula.objects.get(pk=id)
     except Pelicula.DoesNotExist:
@@ -102,45 +103,83 @@ def registrar_usuario(request, rol):
 def login_view(request):
     if request.method == 'POST':
         try:
+            # Carga los datos JSON del cuerpo de la solicitud
             data = json.loads(request.body)
             form = FormLogin(data)
-            print(data)
-            print(form)
+            
+            # Valida el formulario
             if form.is_valid():
                 nombreusuario = form.cleaned_data['nombreusuario']
                 contrasena = form.cleaned_data['contrasena']
+                
                 try:
+                    # Buscar el usuario por nombre de usuario
                     user = Usuario.objects.get(nombreusuario=nombreusuario)
+                    
+                    # Verificar la contraseña
                     if check_password(contrasena, user.contrasena):
+                        # Generar el token JWT
                         token = jwt.encode(
                             {'usuario': user.nombreusuario}, 'tu_clave_secreta', algorithm='HS256')
                         return JsonResponse({'token': token})
                     else:
                         return JsonResponse({'error': 'Nombre de usuario o contraseña inválidos'}, status=400)
+                
                 except Usuario.DoesNotExist:
                     return JsonResponse({'error': 'Nombre de usuario o contraseña inválidos'}, status=400)
             else:
                 return JsonResponse({'error': 'Datos de inicio de sesión no válidos'}, status=400)
+        
         except json.JSONDecodeError:
             return JsonResponse({'error': 'Formato JSON inválido en el cuerpo de la solicitud'}, status=400)
+        
+        except Exception as e:
+            return JsonResponse({'error': str(e)}, status=500)
+    
     elif request.method == 'GET':
+        # Mostrar el formulario de inicio de sesión
         form = FormLogin()
         return render(request, 'login.html', {'form': form})
+    
     else:
         return HttpResponseNotAllowed(['GET', 'POST'])
 
 
 
 @api_view(['GET'])
-
-def perfilPublico(request, usuario):
+def perfilPublico(request, nombre_usuario):
     try:
-        user = get_object_or_404(Usuario, nombreusuario=usuario)
+        # Obtener el usuario del perfil
+        user = Usuario.objects.get(nombreusuario=nombre_usuario)
+        
+        # Serializar los datos del usuario
         serializer = UsuarioPublicoSerializer(user)
-        is_own_profile = False
-        if 'user_id' in request.session:
-            is_own_profile = int(request.session['id_usuario']) == user.id_usuario
-        return JsonResponse({'usuario': serializer.data, 'propio_perfil': is_own_profile})
+        data = json.dumps(serializer.data)
 
+        print(data)
+        # Verificar el token de sesión para determinar si el usuario está viendo su propio perfil
+        token = request.COOKIES.get('sessionToken')
+        print(token)
+        if token:
+            try:
+                decoded_token = jwt.decode(token, 'tu_clave_secreta', algorithms=['HS256'])
+                username_in_token = decoded_token.get('usuario')
+                
+                if username_in_token == nombre_usuario:
+                    propio_perfil = True
+                else:
+                    propio_perfil = False
+            except jwt.ExpiredSignatureError:
+                # Manejar el token expirado si es necesario
+                propio_perfil = False
+        else:
+            propio_perfil = False
+        
+        # Devolver respuesta JSON con los datos del usuario y si es su propio perfil
+        return JsonResponse({'usuario': serializer.data, 'propio_perfil': propio_perfil})
+    
     except Usuario.DoesNotExist:
         return JsonResponse({'error': 'Usuario no encontrado'}, status=404)
+
+
+

@@ -58,7 +58,6 @@ export class NavbarComponent implements OnInit {
 
   openPerfil() {
     const usuario = this.loginService.getNombreUsuario();
-    console.log(usuario)
     this.router.navigate([`/${usuario}`]);
   }
 

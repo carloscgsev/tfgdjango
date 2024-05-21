@@ -54,8 +54,7 @@ export class LoginService {
   }
 
   getPerfilPublico(username: string): Observable<any> {
-    return this.http.get<any>(`${this.urlBase}/perfil_publico/${username}/`).pipe(
-      map((response) => response),
+    return this.http.get<any>(`${this.urlBase}/perfil_publico/${username}/`, { withCredentials: true }).pipe(
       catchError((error) => {
         if (error.status === 404) {
           console.error('Usuario no encontrado');
