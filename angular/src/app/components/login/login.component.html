@@ -1,10 +1,10 @@
 <div class="login-container">
   <form
-    class="row row-cols-lg-auto g-3 align-items-center"
+    class="row row-cols-lg-auto g-3 align-items-center rounded-3"
     [formGroup]="loginForm"
     (ngSubmit)="login()"
   >
-    <button class="btn btn-close" (click)="closeLoginForm()"></button>
+    <button class="btn btn-close btn-close-gris" (click)="closeLoginForm()"></button>
     <div class="col-12">
       <label for="inlineFormInputGroupUsername">Usuario</label>
       <div class="input-group">
@@ -12,6 +12,7 @@
           type="text"
           class="form-control"
           id="inlineFormInputGroupUsername"
+          placeholder=""
           formControlName="nombreusuario"
         />
       </div>
@@ -24,6 +25,7 @@
           type="password"
           class="form-control"
           id="inlineFormPass"
+          placeholder=""
           formControlName="contrasena"
         />
       </div>
@@ -40,7 +42,7 @@
     </div> -->
 
     <div class="col-12 mt-0">
-      <button type="submit" class="btn btn-success">Login</button>
+      <button type="submit" class="btn">LOGIN</button>
     </div>
   </form>
 </div>

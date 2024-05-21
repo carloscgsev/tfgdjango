@@ -1,5 +1,5 @@
 a {
-  color: #f0bf1f;
+  color: #d6a319;
   margin: 0 10px;
   text-transform: uppercase;
   letter-spacing: 1.5px;
@@ -10,26 +10,29 @@ a:hover {
 }
 
 a:focus {
-  color: #f0bf1f;
+  color: #d6a319;
 }
 
 a:active {
-  color: #f0bf1f;
+  color: #d6a319;
 }
 
-ul > li > a.active {
-  color: #b53534;
+a.active {
+  color: #d6a319 !important;
+}
+
+a.active:hover {
+  color: white !important;
 }
 
 .navbar-brand.active {
-  color: #f0bf1f;
+  color: #d6a319;
 }
-
 
 .navbar {
   overflow-y: hidden;
   overflow-x: hidden;
-  background: #121515;
+  background: #102545;
   /* border: 8px solid green; */
   font-family: "Graphik", sans-serif;
   position: relative;
@@ -49,15 +52,13 @@ ul > li > a.active {
     flex-direction: row;
   }
 
-
-  .icon{
+  .icon {
     font-size: 1.8em;
   }
 
   .rotate-45:hover {
     transform: rotate(90deg);
     transition: transform 0.5s ease;
-    
   }
 
   .rotate-45 {
@@ -68,7 +69,6 @@ ul > li > a.active {
     background-color: transparent;
     border: 0;
   }
-
 }
 
 @media (min-width: 1031px) {
@@ -83,7 +83,4 @@ ul > li > a.active {
   .container-fluid {
     margin: 1em 2em 1em 2em;
   }
-
-  
 }
-

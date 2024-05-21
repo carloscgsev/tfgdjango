@@ -6,7 +6,7 @@
  }
 
 .modal-content {
-  background-color: #AFBB73;
+  background-color: #ffeeca;
   border: 0;
   padding: 25px;
 }
@@ -22,13 +22,12 @@ h3 {
 input {
   border: 0 !important;
   box-shadow: none !important;
-  background-color: #0F2846;
+  background-color: #2c3440;;
 }
 
 input.form-control + label {
   color: white;
 }
-
 
 input.form-control:not(:placeholder-shown) {
   background-color: white;

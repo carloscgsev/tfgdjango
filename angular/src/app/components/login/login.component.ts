@@ -22,8 +22,8 @@ export class LoginComponent {
     });
   }
 
-  closeLoginForm() {
-    this.loginControlService.toggleLoginForm();
+  closeLoginForm(): void {
+    this.loginControlService.closeLoginForm();
   }
 
   login() {

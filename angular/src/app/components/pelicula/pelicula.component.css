@@ -1,11 +1,11 @@
 .container {
-  color: #d3a736;
+  color: #d6a319;
   font-family: "Graphik", sans-serif;
 }
 
 h3,
 h4 {
-  border-bottom: 2px solid #d3a736;
+  border-bottom: 2px solid #d6a319;
 }
 
 .card {
@@ -14,7 +14,7 @@ h4 {
 
 .btn-group .btn {
   border: 1px solid #99aabb;
-  color: #d3a736;
+  color: #d6a319;
   border-radius: 1px;
 }
 
@@ -23,7 +23,7 @@ h4 {
 }
 
 .navbar-text {
-  color: #d3a736;
+  color: #d6a319;
   margin-right: 1em;
 }
 

@@ -4,8 +4,6 @@ import { DetallesPeliculaComponent } from './components/detalles-pelicula/detall
 import { ResultadoBusquedaComponent } from './components/resultado-busqueda/resultado-busqueda.component';
 import { HomeComponent } from './components/home/home.component';
 import { DummyComponent } from './components/dummy/dummy.component';
-import { RegistroComponent } from './components/registro/registro.component';
-import { LoginComponent } from './components/login/login.component';
 import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
 import { AuthGuard } from './auth.guard';
 import { PeliculaComponent } from './components/pelicula/pelicula.component';

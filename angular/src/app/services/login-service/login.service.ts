@@ -32,7 +32,6 @@ export class LoginService {
     );
   }
 
-  
   logout(): void {
     // Elimina la cookie de sesión y emite false al BehaviorSubject
     this.cookieService.delete('sessionToken');

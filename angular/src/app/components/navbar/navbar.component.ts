@@ -8,7 +8,7 @@ import {
   ChangeDetectorRef,
   HostListener,
 } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router} from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalService } from '../../services/modal-service/modal.service';
 import { filter } from 'rxjs/operators';
@@ -46,9 +46,9 @@ export class NavbarComponent implements OnInit {
   logout(): void {
     this.router.navigate(['']);
     this.loginService.logout();
-    window.location.reload();    
+    window.location.reload();
   }
-  
+
   openVC() {
     this.modalService.open(RegistroComponent, {
       centered: true,
@@ -66,4 +66,5 @@ export class NavbarComponent implements OnInit {
       this.successMsg = '';
     }, 5000);
   }
+
 }

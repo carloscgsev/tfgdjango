@@ -140,10 +140,15 @@
   <h4 class="mt-4">Con actividad reciente</h4>
   <div class="row g-4 just-reviewed">
     <div *ngFor="let pelicula of justReviewed" class="col">
-      <img
-        [src]="'https://image.tmdb.org/t/p/original' + pelicula.poster_url"
-        alt="Movie Poster"
-      />
+      <a [href]="
+              '/detalles/' + pelicula.id_pelicula
+              "><img
+              [src]="
+                'https://image.tmdb.org/t/p/original' + pelicula.poster_url
+              "
+              
+              alt="Movie Poster"
+            /></a>
     </div>
   </div>
 </div>

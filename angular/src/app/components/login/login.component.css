@@ -1,5 +1,5 @@
 label {
-  color: #121515;
+  color: white;
   font-size: small;
   margin-left: 2px;
 }
@@ -8,20 +8,47 @@ button {
   transform: translateY(50%);
 }
 
+input {
+  border: 0 !important;
+  box-shadow: none !important;
+  background: #2c3440;;
+}
+
+/* Cuando el input tiene texto (no está mostrando el placeholder) */
+input.form-control:not(:placeholder-shown) {
+  background-color: white;
+}
+
+input.form-control:not(:focus):not(:placeholder-shown) {
+  background-color: #2c3440;
+  color: white;
+}
 form {
-  background-color: #AFBB73;
-  height: 100vh;
+  background: #14181c;
   right: 0;
   padding: 1em;
 }
 
+.btn[type="submit"] {
+  color: white;
+  background-color: #009d1a;;
+  letter-spacing: 1.5px;
+}
+
+.btn-close-gris {
+  /* background-color: #334455; */
+background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23334455"><path d="m13.41 12 6.29-6.29c.94-.94-.48-2.35-1.41-1.41L12 10.59 5.71 4.3c-.93-.93-2.35.48-1.41 1.41L10.59 12 4.3 18.29c-.94.94.48 2.35 1.41 1.41L12 13.41c6.12 6.12 6.74 7.26 7.71 6.29a.996.996 0 0 0 0-1.41L13.42 12Z"></path></svg>');} 
+
+.btn-close-gris:hover {
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23FFFFFF"><path d="m13.41 12 6.29-6.29c.94-.94-.48-2.35-1.41-1.41L12 10.59 5.71 4.3c-.93-.93-2.35.48-1.41 1.41L10.59 12 4.3 18.29c-.94.94.48 2.35 1.41 1.41L12 13.41c6.12 6.12 6.74 7.26 7.71 6.29a.996.996 0 0 0 0-1.41L13.42 12Z"></path></svg>');
+  opacity: 1;
+}
 .login-container {
   position: absolute;
   top: 0;
   right: 0;
   width: 90vw;
   height: 100%;
-  /* background-color: #b53534; */
   z-index: 1000;
   display: flex;
   justify-content: end; 

@@ -5,7 +5,7 @@
     >
 
     <div id="navbarNav">
-      <ul class="navbar-nav ms-auto desktop-nav">
+      <ul class="navbar-nav ms-auto desktop-nav" *ngIf="loginControlService.showNavbar$ | async">
         <li class="nav-item">
           <a
             class="nav-link"
@@ -18,7 +18,6 @@
           <a
             class="nav-link"
             (click)="openVC()"
-            routerLinkActive="active"
             *ngIf="!isLoggedIn"
             >Registrarse</a
           >
@@ -27,17 +26,16 @@
           <a
             class="nav-link"
             (click)="loginControlService.toggleLoginForm()"
-            routerLinkActive="active"
             >Iniciar sesión</a
           >
         </li>
         <li class="nav-item" *ngIf="isLoggedIn">
-          <a class="nav-link" (click)="openPerfil()" routerLinkActive="active"
+          <a class="nav-link" (click)="openPerfil()" 
             >Mi Perfil</a
           >
         </li>
         <li class="nav-item" *ngIf="isLoggedIn">
-          <a class="nav-link" (click)="logout()" routerLinkActive="active"
+          <a class="nav-link" (click)="logout()" 
             >Cerrar sesión</a
           >
         </li>
