@@ -106,7 +106,8 @@ def login_view(request):
             # Carga los datos JSON del cuerpo de la solicitud
             data = json.loads(request.body)
             form = FormLogin(data)
-            
+            print(data)
+            print(form)
             # Valida el formulario
             if form.is_valid():
                 nombreusuario = form.cleaned_data['nombreusuario']
